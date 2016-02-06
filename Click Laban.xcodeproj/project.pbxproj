@@ -484,6 +484,7 @@
 				DE6ED5A31C665B1000419821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE6ED5A41C665B1000419821 /* Build configuration list for PBXNativeTarget "Click LabanTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +493,7 @@
 				DE6ED5A61C665B1000419821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE6ED5A71C665B1000419821 /* Build configuration list for PBXNativeTarget "Click LabanUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +502,7 @@
 				DE6ED5A91C665B1000419821 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
