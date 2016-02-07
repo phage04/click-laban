@@ -11,6 +11,7 @@ import Foundation
 class Babalu: Player {
     private var _name = "Babalu"
     
+    
     var name: String {
         get {
             return _name

@@ -23,13 +23,16 @@ class ViewController: UIViewController {
     
     var player: Redford!
     var enemy: Babalu!
+    var _attackPwr: [Int] = [0,5,15,50]
+    var nowAttackPwr: Int!
+    var timeDelayTimeRnd: UInt32 = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        player = Redford(startingHp: 100, attackPwr: 20)
-        enemy = Babalu(startingHp: 100, attackPwr: 20)
+        player = Redford(startingHp: 100)
+        enemy = Babalu(startingHp: 100)
         
         playerHPLbl.text = "\(player.hp) HP"
         enemyHPLbl.text = "\(enemy.hp) HP"
@@ -37,9 +40,7 @@ class ViewController: UIViewController {
         showAttackButtons()
         playerImg.hidden = false
         enemyImg.hidden = false
-        
-
-        
+        infoLbl.text = "KILL EACH OTHER!!!"
         
     }
     
@@ -73,7 +74,9 @@ class ViewController: UIViewController {
     }
     
     func timeDelay (sec: Double) {
-        NSTimer.scheduledTimerWithTimeInterval(sec, target: self, selector: "showAttackButtons", userInfo: nil, repeats: false)
+        var secNow: Double = 1
+        secNow += sec
+        NSTimer.scheduledTimerWithTimeInterval(secNow, target: self, selector: "showAttackButtons", userInfo: nil, repeats: false)
         
     }
     
@@ -82,13 +85,33 @@ class ViewController: UIViewController {
         
     }
     
+    func generateAttackPwr () {
+        
+       nowAttackPwr = _attackPwr[Int(arc4random_uniform(4))]
+        
+    }
+    
     @IBAction func enemyAttackPressed(sender: AnyObject) {
         
         hideAttackButtons()
+        generateAttackPwr()
         
-        if player.attemptAttack(enemy.attackPwr){
-            infoLbl.text = "\(enemy.name) attacked \(player.name) for \(enemy.attackPwr) HP"
+        if player.attemptAttack(nowAttackPwr) {
+            
+            if nowAttackPwr != 0 && nowAttackPwr != _attackPwr[3] {
+            
+            infoLbl.text = "\(enemy.name) attacked \(player.name) for \(nowAttackPwr) HP"
             playerHPLbl.text = "\(player.hp) HP"
+                
+            }else if nowAttackPwr == _attackPwr[3] {
+                
+            infoLbl.text = "CRIT!!! \(enemy.name) attacked \(player.name) for \(nowAttackPwr) HP"
+                playerHPLbl.text = "\(player.hp) HP"
+                
+            }else{
+                infoLbl.text = "\(enemy.name)'s attacked missed!"
+                playerHPLbl.text = "\(player.hp) HP"
+            }
         }
         
         
@@ -100,7 +123,7 @@ class ViewController: UIViewController {
             Restart(2)
         } else {
       
-       timeDelay(Double(Int(arc4random_uniform(5))))
+       timeDelay(Double(Int(arc4random_uniform(timeDelayTimeRnd))))
         }
 
     }
@@ -108,10 +131,22 @@ class ViewController: UIViewController {
     @IBAction func playerAttackPressed(sender: AnyObject) {
         
         hideAttackButtons()
+        generateAttackPwr()
         
-        if enemy.attemptAttack(player.attackPwr){
-            infoLbl.text = "\(player.name) attacked \(enemy.name) for \(player.attackPwr) HP"
+        if enemy.attemptAttack(nowAttackPwr){
+            if nowAttackPwr != 0 && nowAttackPwr != _attackPwr[3] {
+                
+            infoLbl.text = "\(player.name) attacked \(enemy.name) for \(nowAttackPwr) HP"
             enemyHPLbl.text = "\(enemy.hp) HP"
+            }else if nowAttackPwr == _attackPwr[3] {
+                
+                infoLbl.text = "CRIT!!! \(player.name) attacked \(enemy.name) for \(nowAttackPwr) HP"
+                enemyHPLbl.text = "\(enemy.hp) HP"
+                
+            }else{
+                infoLbl.text = "\(player.name)'s attacked missed!"
+            enemyHPLbl.text = "\(enemy.hp) HP"
+            }
         }
         
      
@@ -123,7 +158,7 @@ class ViewController: UIViewController {
             Restart(2)
         } else {
         
-       timeDelay(Double(Int(arc4random_uniform(5))))
+       timeDelay(Double(Int(arc4random_uniform(timeDelayTimeRnd))))
         }
     }
         

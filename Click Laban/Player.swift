@@ -11,14 +11,14 @@ import Foundation
 class Player {
     
     private var _hp: Int = 100
-    private var _attackPwr: Int = 15
+    var attackPwr: Int = 0
     
-    var attackPwr: Int {
-        get {
-            return _attackPwr
-        }
-    }
-    
+//    var attackPwr: Int {
+//        get {
+//            return _attackPwr[Int(arc4random_uniform(3))]
+//        }
+//    }
+
     var hp: Int {
         get {
             return _hp
@@ -35,9 +35,8 @@ class Player {
         }
     }
     
-    init(startingHp: Int, attackPwr: Int) {
+    init(startingHp: Int) {
         self._hp = startingHp
-        self._attackPwr = attackPwr
     }
     
     func attemptAttack(attackPwr: Int) -> Bool {
