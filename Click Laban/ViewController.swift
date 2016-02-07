@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerImg: UIImageView!
     @IBOutlet weak var enemyHPLbl: UILabel!
     @IBOutlet weak var playerHPLbl: UILabel!
+    @IBOutlet weak var whoWinsLbl: UILabel!
     
     var player: Redford!
     var enemy: Babalu!
@@ -27,16 +28,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        player = Redford(startingHp: 100, attackPwr: 15)
-        enemy = Babalu(startingHp: 100, attackPwr: 15)
+        player = Redford(startingHp: 100, attackPwr: 20)
+        enemy = Babalu(startingHp: 100, attackPwr: 20)
         
         playerHPLbl.text = "\(player.hp) HP"
         enemyHPLbl.text = "\(enemy.hp) HP"
+        whoWinsLbl.text = ""
+        showAttackButtons()
+        playerImg.hidden = false
+        enemyImg.hidden = false
         
 
         
         
     }
+    
+
     
     func showAttackButtons () {
         
@@ -54,8 +61,24 @@ class ViewController: UIViewController {
         enemyAttackLbl.hidden  = true
     }
     
+    func hideAll (){
+        playerAttackBtn.hidden = true
+        playerAttackLbl.hidden  = true
+        enemyAttackBtn.hidden = true
+        enemyAttackLbl.hidden  = true
+        playerImg.hidden = true
+        enemyImg.hidden = true
+        playerHPLbl.text = ""
+        enemyHPLbl.text = ""
+    }
+    
     func timeDelay (sec: Double) {
         NSTimer.scheduledTimerWithTimeInterval(sec, target: self, selector: "showAttackButtons", userInfo: nil, repeats: false)
+        
+    }
+    
+    func Restart (sec: Double) {
+        NSTimer.scheduledTimerWithTimeInterval(sec, target: self, selector: "viewDidLoad", userInfo: nil, repeats: false)
         
     }
     
@@ -70,13 +93,15 @@ class ViewController: UIViewController {
         
         
         if !player.isAlive {
-            playerHPLbl.text = ""
-            infoLbl.text = "\(enemy.name) killed \(player.name)"
-            playerImg.hidden = true
             
-        }
+            infoLbl.text = "\(enemy.name) killed \(player.name)"
+            hideAll()
+            whoWinsLbl.text = "\(enemy.name) Wins!!!"
+            Restart(2)
+        } else {
       
-       timeDelay(3)
+       timeDelay(Double(Int(arc4random_uniform(5))))
+        }
 
     }
     
@@ -91,13 +116,15 @@ class ViewController: UIViewController {
         
      
         if !enemy.isAlive {
-            enemyHPLbl.text = ""
-            infoLbl.text = "\(player.name) killed \(enemy.name)"
-            enemyImg.hidden = true
             
-        }
+            infoLbl.text = "\(player.name) killed \(enemy.name)"
+            hideAll()
+            whoWinsLbl.text = "\(player.name) Wins!!!"
+            Restart(2)
+        } else {
         
-        timeDelay(3)
+       timeDelay(Double(Int(arc4random_uniform(5))))
+        }
     }
         
 

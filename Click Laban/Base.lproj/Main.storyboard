@@ -127,6 +127,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Babalu Wins!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jla-ag-ck2">
+                                <rect key="frame" x="126" y="216" width="378" height="88"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="70"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -138,6 +144,7 @@
                             <constraint firstItem="kyf-Tg-JRM" firstAttribute="centerX" secondItem="Nhh-Yy-veY" secondAttribute="centerX" id="DUM-ZF-onH"/>
                             <constraint firstItem="7Wb-5l-cj1" firstAttribute="centerX" secondItem="Kxm-em-YVY" secondAttribute="centerX" id="DY0-dA-xeG"/>
                             <constraint firstItem="Nhh-Yy-veY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="F8W-PC-GaV"/>
+                            <constraint firstItem="Jla-ag-ck2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GGq-il-Rs5"/>
                             <constraint firstItem="2o3-NM-2Qk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Icz-WC-Ish"/>
                             <constraint firstAttribute="trailing" secondItem="IWV-I0-dnN" secondAttribute="trailing" constant="20" id="MaP-lR-QbX"/>
                             <constraint firstItem="kyf-Tg-JRM" firstAttribute="centerY" secondItem="Vz7-3M-CTH" secondAttribute="centerY" id="PRr-7q-nX0"/>
@@ -159,6 +166,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nhh-Yy-veY" secondAttribute="bottom" id="niV-x4-5iV"/>
                             <constraint firstItem="dNO-M6-Jcf" firstAttribute="top" secondItem="Kxm-em-YVY" secondAttribute="bottom" constant="14" id="rpO-9b-wa2"/>
                             <constraint firstItem="IWV-I0-dnN" firstAttribute="centerY" secondItem="nLb-mb-wmC" secondAttribute="centerY" id="wC7-1d-MjZ"/>
+                            <constraint firstItem="Jla-ag-ck2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ybS-gc-q83"/>
                         </constraints>
                     </view>
                     <connections>
@@ -171,6 +179,7 @@
                         <outlet property="playerAttackLbl" destination="7Wb-5l-cj1" id="EQd-ut-r0j"/>
                         <outlet property="playerHPLbl" destination="IWV-I0-dnN" id="Bnk-66-duc"/>
                         <outlet property="playerImg" destination="dNO-M6-Jcf" id="1Mi-4I-YU3"/>
+                        <outlet property="whoWinsLbl" destination="Jla-ag-ck2" id="sDi-hr-mUg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
