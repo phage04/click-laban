@@ -11,7 +11,7 @@ import Foundation
 class Player {
     
     private var _hp: Int = 100
-    private var _attackPwr: Int = 10
+    private var _attackPwr: Int = 15
     
     var attackPwr: Int {
         get {

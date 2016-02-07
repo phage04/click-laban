@@ -93,20 +93,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0p-JW-NsW" userLabel="enemy btn">
-                                <rect key="frame" x="91" y="54" width="175" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="Kvo-np-Nst"/>
-                                    <constraint firstAttribute="height" constant="64" id="Z79-lx-2LD"/>
-                                </constraints>
-                                <state key="normal" image="player2attackbtn"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ATTACK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6y8-Te-H5W">
-                                <rect key="frame" x="72" y="54" width="105" height="33"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxm-em-YVY" userLabel="player btn">
                                 <rect key="frame" x="375" y="54" width="175" height="64"/>
                                 <constraints>
@@ -114,9 +100,29 @@
                                     <constraint firstAttribute="width" constant="175" id="ewK-Kt-saA"/>
                                 </constraints>
                                 <state key="normal" image="player1attackbtn"/>
+                                <connections>
+                                    <action selector="playerAttackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="are-R0-iOQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ATTACK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wb-5l-cj1">
                                 <rect key="frame" x="410" y="70.5" width="105" height="32.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0p-JW-NsW" userLabel="enemy btn">
+                                <rect key="frame" x="91" y="54" width="175" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="Kvo-np-Nst"/>
+                                    <constraint firstAttribute="height" constant="64" id="Z79-lx-2LD"/>
+                                </constraints>
+                                <state key="normal" image="player2attackbtn"/>
+                                <connections>
+                                    <action selector="enemyAttackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PEp-9a-fLa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ATTACK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6y8-Te-H5W">
+                                <rect key="frame" x="126" y="69" width="105" height="33"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -155,6 +161,17 @@
                             <constraint firstItem="IWV-I0-dnN" firstAttribute="centerY" secondItem="nLb-mb-wmC" secondAttribute="centerY" id="wC7-1d-MjZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enemyAttackBtn" destination="Y0p-JW-NsW" id="Zlx-mE-pv4"/>
+                        <outlet property="enemyAttackLbl" destination="6y8-Te-H5W" id="xiO-gF-UXv"/>
+                        <outlet property="enemyHPLbl" destination="nLb-mb-wmC" id="JKd-my-CQb"/>
+                        <outlet property="enemyImg" destination="a6H-PG-Rpj" id="gEc-k5-Ae0"/>
+                        <outlet property="infoLbl" destination="Vz7-3M-CTH" id="RdK-he-mW5"/>
+                        <outlet property="playerAttackBtn" destination="Kxm-em-YVY" id="DCc-VW-cff"/>
+                        <outlet property="playerAttackLbl" destination="7Wb-5l-cj1" id="EQd-ut-r0j"/>
+                        <outlet property="playerHPLbl" destination="IWV-I0-dnN" id="Bnk-66-duc"/>
+                        <outlet property="playerImg" destination="dNO-M6-Jcf" id="1Mi-4I-YU3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
