@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class Redford: Player {
+    private var _name = "Redford"
+    
+    var name: String {
+        get {
+            return _name
+        }
+    }
+}
